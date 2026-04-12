@@ -3,7 +3,7 @@
   "header": {
     "logoPath": "",
     "logoSize": "small",
-    "navigationMode": "dropdown",
+    "navigationMode": "inline",
     "localePreferencePopinEnabled": false
   },
   "footer": {
