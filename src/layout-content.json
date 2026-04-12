@@ -1,0 +1,38 @@
+{
+  "contentWidth": "7xl",
+  "header": {
+    "logoPath": "",
+    "logoSize": "small",
+    "navigationMode": "dropdown",
+    "localePreferencePopinEnabled": false
+  },
+  "footer": {
+    "enabled": true,
+    "text": "Eveil du dragon",
+    "logoPath": "",
+    "logoPosition": "center",
+    "logoSize": "large",
+    "sectionBordersEnabled": false,
+    "sectionBackgroundEnabled": false,
+    "sections": [
+      {
+        "id": "footer-section-1",
+        "title": "Resources",
+        "textAlignment": "left",
+        "links": [
+          {
+            "id": "footer-link-1",
+            "label": "Home",
+            "href": "/",
+            "localizedHrefs": {
+              "FR": "/accueil"
+            },
+            "localizedLabels": {
+              "FR": "Accueil"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

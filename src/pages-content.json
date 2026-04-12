@@ -1,0 +1,14 @@
+{
+  "pages": [
+    {
+      "id": "cmnrp9s2l0014o001j0060uiq",
+      "sourcePageName": "ACCEUIL",
+      "routePath": "/",
+      "localizedRoutePaths": {},
+      "pageTitle": "ACCEUIL",
+      "navigationLabel": "ACCEUIL",
+      "localizedNavigationLabels": {},
+      "includeInNavigation": true
+    }
+  ]
+}

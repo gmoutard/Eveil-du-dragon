@@ -1,0 +1,166 @@
+{
+  "nodes": [
+    {
+      "id": "root-container",
+      "type": "Container",
+      "props": {
+        "className": "w-full mx-auto py-12 space-y-20 space-y-4",
+        "size": "xl"
+      },
+      "children": [
+        {
+          "id": "hero-section",
+          "type": "Container",
+          "props": {
+            "className": "w-full max-w-5xl mx-auto text-center space-y-6 px-4"
+          },
+          "children": [
+            {
+              "id": "hero-title",
+              "type": "H1",
+              "props": {
+                "children": "L'Éveil du Dragon : Quand le volume donne vie à l'imaginaire",
+                "className": "text-5xl font-bold tracking-tight text-foreground"
+              }
+            },
+            {
+              "id": "hero-subtitle",
+              "type": "Lead",
+              "props": {
+                "children": "Des jeux de société en 3D carton, éco-conçus en Occitanie, pour transformer vos moments en famille en aventures tactiles et pédagogiques.",
+                "className": "text-xl text-muted-foreground max-w-2xl mx-auto"
+              }
+            },
+            {
+              "id": "hero-cta",
+              "type": "Button",
+              "props": {
+                "children": "Découvrir le Trésor sous la Montagne",
+                "className": "mt-8"
+              }
+            }
+          ]
+        },
+        {
+          "id": "why-us-section",
+          "type": "Container",
+          "props": {
+            "className": "w-full max-w-7xl mx-auto px-4 space-y-10"
+          },
+          "children": [
+            {
+              "id": "why-us-title",
+              "type": "H2",
+              "props": {
+                "children": "Pourquoi choisir L'Éveil du Dragon ?",
+                "className": "text-3xl font-semibold text-center"
+              }
+            },
+            {
+              "id": "why-us-grid",
+              "type": "Grid",
+              "props": {
+                "layout": {
+                  "widthPct": 100
+                },
+                "className": "grid grid-cols-1 md:grid-cols-2 gap-6"
+              },
+              "children": [
+                {
+                  "id": "card-eco",
+                  "type": "Card",
+                  "props": {
+                    "layout": {
+                      "widthPct": 100
+                    },
+                    "className": "rounded-xl border border-border bg-surface p-6 space-y-4"
+                  },
+                  "children": [
+                    {
+                      "id": "text-eco",
+                      "type": "Text",
+                      "props": {
+                        "children": "Zéro plastique, 100% carton recyclé. Nos structures 3D sont pensées pour durer et respecter la planète.",
+                        "className": "text-lg font-medium"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "id": "card-pedago",
+                  "type": "Card",
+                  "props": {
+                    "layout": {
+                      "widthPct": 100
+                    },
+                    "className": "rounded-xl border border-border bg-surface p-6 space-y-4"
+                  },
+                  "children": [
+                    {
+                      "id": "text-pedago",
+                      "type": "Text",
+                      "props": {
+                        "children": "Conçu par un ancien enseignant et thérapeute, chaque jeu favorise le développement cognitif et émotionnel.",
+                        "className": "text-lg font-medium"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "pnp-section",
+          "type": "Container",
+          "props": {
+            "className": "w-full max-w-5xl mx-auto px-4 py-12 border-t border-border text-center space-y-6"
+          },
+          "children": [
+            {
+              "id": "pnp-title",
+              "type": "H2",
+              "props": {
+                "children": "Cadeau : Le Trésor sous la Montagne",
+                "className": "text-2xl font-bold"
+              }
+            },
+            {
+              "id": "pnp-desc",
+              "type": "Text",
+              "props": {
+                "children": "Téléchargez, imprimez et construisez votre dragon articulé. Une expérience de craft immédiate pour vos enfants.",
+                "className": "text-muted-foreground max-w-prose mx-auto"
+              }
+            },
+            {
+              "id": "pnp-cta",
+              "type": "Button",
+              "props": {
+                "children": "Télécharger le PnP à prix libre"
+              }
+            }
+          ]
+        },
+        {
+          "id": "footer-section",
+          "type": "Container",
+          "props": {
+            "className": "w-full text-center py-8"
+          },
+          "children": [
+            {
+              "id": "footer-text",
+              "type": "Muted",
+              "props": {
+                "children": "© 2024 L'Éveil du Dragon - Créations coopératives en Occitanie."
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "title": "Studio",
+  "version": 1
+}

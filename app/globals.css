@@ -1,0 +1,241 @@
+@config "../tailwind.config.ts";
+@import "tailwindcss";
+@source "../app";
+@source "../src";
+@source "../node_modules/@arkcit/engine/dist";
+@source "../node_modules/@arkcit/engine-react/dist";
+@source "../node_modules/@arkcit/react-ui/dist";
+@source inline("rounded-2xl border-b border-border px-4 py-3 py-4 text-3xl font-bold md:text-4xl text-xs font-semibold uppercase tracking-wide text-primary text-secondary text-muted-foreground text-primary-foreground text-primary-foreground/90 text-primary-foreground/85 text-secondary-soft-foreground grid gap-6 md:gap-8 md:items-center lg:grid-cols-2 flex flex-col mt-6 p-5 md:p-7 md:p-8 lg:pr-2 overflow-hidden relative absolute inset-0 z-10 items-center justify-center justify-start text-center text-left bg-gradient-to-b from-glass-highlight to-transparent before:pointer-events-none before:absolute before:inset-0 before:rounded-[inherit] before:bg-gradient-to-b before:from-glass-highlight before:to-transparent before:opacity-40 backdrop-blur-md shadow-glass bg-glass-bg border-glass-border");
+
+@theme {
+  --font-sans: ui-sans-serif, system-ui, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, monospace;
+  --color-background: oklch(100% 0 0);
+  --color-foreground: oklch(20.8% 0.042 265.755);
+  --color-surface: oklch(98.4% 0.003 247.858);
+  --color-surface-hover: oklch(96.8% 0.007 247.896);
+  --color-border: oklch(92.9% 0.013 255.508);
+  --color-border-strong: oklch(86.9% 0.022 252.894);
+  --color-muted: oklch(96.8% 0.007 247.896);
+  --color-muted-foreground: oklch(44.6% 0.043 257.281);
+  --color-ring: oklch(68.5% 0.169 237.323);
+  --color-primary: oklch(58.8% 0.158 241.966);
+  --color-primary-hover: oklch(50% 0.134 242.749);
+  --color-primary-active: oklch(44.3% 0.11 240.79);
+  --color-primary-foreground: #fff;
+  --color-primary-soft: oklch(97.7% 0.013 236.62);
+  --color-primary-soft-foreground: oklch(50% 0.134 242.749);
+  --color-secondary: oklch(37.2% 0.044 257.287);
+  --color-secondary-hover: oklch(27.9% 0.041 260.031);
+  --color-secondary-foreground: #fff;
+  --color-secondary-soft: oklch(96.8% 0.007 247.896);
+  --color-secondary-soft-foreground: oklch(37.2% 0.044 257.287);
+  --color-success: oklch(59.6% 0.145 163.225);
+  --color-success-hover: oklch(50.8% 0.118 165.612);
+  --color-success-foreground: #fff;
+  --color-success-soft: oklch(97.9% 0.021 166.113);
+  --color-success-soft-foreground: oklch(50.8% 0.118 165.612);
+  --color-warning: oklch(76.9% 0.188 70.08);
+  --color-warning-hover: oklch(66.6% 0.179 58.318);
+  --color-warning-foreground: #000;
+  --color-warning-soft: oklch(98.7% 0.022 95.277);
+  --color-warning-soft-foreground: oklch(55.5% 0.163 48.998);
+  --color-danger: oklch(57.7% 0.245 27.325);
+  --color-danger-hover: oklch(50.5% 0.213 27.518);
+  --color-danger-foreground: #fff;
+  --color-danger-soft: oklch(97.1% 0.013 17.38);
+  --color-danger-soft-foreground: oklch(50.5% 0.213 27.518);
+  --color-info: oklch(54.6% 0.245 262.881);
+  --color-info-hover: oklch(48.8% 0.243 264.376);
+  --color-info-foreground: #fff;
+  --color-info-soft: oklch(97% 0.014 254.604);
+  --color-info-soft-foreground: oklch(48.8% 0.243 264.376);
+  --ghost-bg: transparent;
+  --ghost-bg-hover: var(--color-surface-hover);
+  --ghost-foreground: var(--color-foreground);
+  --ghost-primary-bg-hover: var(--color-primary-soft);
+  --ghost-primary-foreground: var(--color-primary);
+  --ghost-secondary-bg-hover: var(--color-secondary-soft);
+  --ghost-secondary-foreground: var(--color-secondary);
+  --ghost-success-bg-hover: var(--color-success-soft);
+  --ghost-success-foreground: var(--color-success);
+  --ghost-warning-bg-hover: var(--color-warning-soft);
+  --ghost-warning-foreground: var(--color-warning);
+  --ghost-danger-bg-hover: var(--color-danger-soft);
+  --ghost-danger-foreground: var(--color-danger);
+  --ghost-info-bg-hover: var(--color-info-soft);
+  --ghost-info-foreground: var(--color-info);
+  --glass-bg: color-mix(in srgb, var(--color-surface) 40%, transparent);
+  --glass-border: color-mix(in srgb, var(--color-border) 60%, transparent);
+  --glass-highlight: color-mix(in srgb, white 65%, transparent);
+  --shadow-glass: 0 4px 20px rgb(0 0 0 / 0.1), inset 0 1px 0 rgb(255 255 255 / 0.35);
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 18px;
+}
+
+@layer base {
+  html {
+    font-family: var(--font-sans);
+  }
+
+  html[data-theme="dark"] {
+    color-scheme: dark;
+    --color-background: oklch(12.9% 0.042 264.695);
+    --color-foreground: oklch(96.8% 0.007 247.896);
+    --color-surface: oklch(20.8% 0.042 265.755);
+    --color-surface-hover: oklch(27.9% 0.041 260.031);
+    --color-border: oklch(44.6% 0.043 257.281);
+    --color-border-strong: oklch(55.4% 0.046 257.417);
+    --color-muted: oklch(27.9% 0.041 260.031);
+    --color-muted-foreground: oklch(87.2% 0.01 258.338);
+    --color-primary: oklch(54.6% 0.245 262.881);
+    --color-primary-hover: oklch(48.8% 0.243 264.376);
+    --color-primary-active: oklch(42.4% 0.199 265.638);
+    --color-primary-foreground: #fff;
+    --color-primary-soft: color-mix(in srgb, var(--color-primary) 18%, transparent);
+    --color-primary-soft-foreground: oklch(88.2% 0.059 254.128);
+    --color-secondary: oklch(87.2% 0.01 258.338);
+    --color-secondary-hover: oklch(96.8% 0.007 247.896);
+    --color-secondary-foreground: oklch(12.9% 0.042 264.695);
+    --color-secondary-soft: color-mix(in srgb, var(--color-secondary) 16%, transparent);
+    --color-secondary-soft-foreground: oklch(96.8% 0.007 247.896);
+    --color-success: oklch(69.6% 0.17 162.48);
+    --color-success-hover: oklch(76.5% 0.177 163.223);
+    --color-success-foreground: oklch(12.9% 0.042 264.695);
+    --color-success-soft: color-mix(in srgb, var(--color-success) 18%, transparent);
+    --color-success-soft-foreground: oklch(90.5% 0.093 164.15);
+    --color-warning: oklch(82.8% 0.189 84.429);
+    --color-warning-hover: oklch(87.9% 0.169 91.605);
+    --color-warning-foreground: oklch(12.9% 0.042 264.695);
+    --color-warning-soft: color-mix(in srgb, var(--color-warning) 18%, transparent);
+    --color-warning-soft-foreground: oklch(94.5% 0.129 101.54);
+    --color-danger: oklch(63.7% 0.237 25.331);
+    --color-danger-hover: oklch(70.4% 0.191 22.216);
+    --color-danger-foreground: oklch(12.9% 0.042 264.695);
+    --color-danger-soft: color-mix(in srgb, var(--color-danger) 18%, transparent);
+    --color-danger-soft-foreground: oklch(88.5% 0.062 18.334);
+    --color-info: oklch(62.3% 0.214 259.815);
+    --color-info-hover: oklch(70.7% 0.165 254.624);
+    --color-info-foreground: oklch(12.9% 0.042 264.695);
+    --color-info-soft: color-mix(in srgb, var(--color-info) 18%, transparent);
+    --color-info-soft-foreground: oklch(88.2% 0.059 254.128);
+    --ghost-bg-hover: var(--color-surface-hover);
+    --ghost-foreground: var(--color-foreground);
+    --ghost-primary-bg-hover: var(--color-primary-soft);
+    --ghost-primary-foreground: var(--color-primary);
+    --ghost-secondary-bg-hover: var(--color-secondary-soft);
+    --ghost-secondary-foreground: var(--color-secondary);
+    --ghost-success-bg-hover: var(--color-success-soft);
+    --ghost-success-foreground: var(--color-success);
+    --ghost-warning-bg-hover: var(--color-warning-soft);
+    --ghost-warning-foreground: var(--color-warning);
+    --ghost-danger-bg-hover: var(--color-danger-soft);
+    --ghost-danger-foreground: var(--color-danger);
+    --ghost-info-bg-hover: var(--color-info-soft);
+    --ghost-info-foreground: var(--color-info);
+  }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    background: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  body,
+  p,
+  button {
+    font-family: var(--font-sans);
+  }
+}
+
+
+/* App assembly theme override */
+:root {
+  --font-sans: "Sora", "Inter", system-ui, sans-serif;
+  --font-sans-bold: "Sora-Bold", "Inter", system-ui, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, monospace;
+  --font-brand: instagram, sans-serif;
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 1.875rem;
+  --color-background: #ffffff;
+  --color-foreground: #0f172a;
+  --color-surface: #f8fafc;
+  --color-surface-hover: #f1f5f9;
+  --color-border: #e2e8f0;
+  --color-border-strong: #cbd5e1;
+  --color-muted: #f1f5f9;
+  --color-muted-foreground: #475569;
+  --color-ring: #0ea5e9;
+  --color-primary: #a75f9a;
+  --color-primary-hover: color-mix(in srgb, #a75f9a 85%, black);
+  --color-primary-active: color-mix(in srgb, #a75f9a 70%, black);
+  --color-primary-foreground: #ffffff;
+  --color-primary-soft: color-mix(in srgb, #a75f9a 12%, white);
+  --color-primary-soft-foreground: #a75f9a;
+  --ghost-primary-bg-hover: var(--color-primary-soft);
+  --ghost-primary-foreground: var(--color-primary);
+  --color-secondary: #334155;
+  --color-secondary-hover: color-mix(in srgb, #334155 85%, black);
+  --color-secondary-foreground: #ffffff;
+  --color-secondary-soft: color-mix(in srgb, #334155 12%, white);
+  --color-secondary-soft-foreground: #334155;
+  --ghost-secondary-bg-hover: var(--color-secondary-soft);
+  --ghost-secondary-foreground: var(--color-secondary);
+  --ghost-bg: transparent;
+  --ghost-bg-hover: #f1f5f9;
+  --ghost-border: transparent;
+  --ghost-foreground: #0f172a;
+  --color-success: #059669;
+  --color-success-hover: color-mix(in srgb, #059669 85%, black);
+  --color-success-foreground: #ffffff;
+  --color-success-soft: color-mix(in srgb, #059669 12%, white);
+  --color-success-soft-foreground: #059669;
+  --ghost-success-bg-hover: var(--color-success-soft);
+  --ghost-success-foreground: var(--color-success);
+  --color-warning: #f59e0b;
+  --color-warning-hover: color-mix(in srgb, #f59e0b 85%, black);
+  --color-warning-foreground: #000000;
+  --color-warning-soft: color-mix(in srgb, #f59e0b 12%, white);
+  --color-warning-soft-foreground: color-mix(in srgb, #f59e0b 70%, black);
+  --ghost-warning-bg-hover: var(--color-warning-soft);
+  --ghost-warning-foreground: var(--color-warning);
+  --color-danger: #dc2626;
+  --color-danger-hover: color-mix(in srgb, #dc2626 85%, black);
+  --color-danger-foreground: #ffffff;
+  --color-danger-soft: color-mix(in srgb, #dc2626 12%, white);
+  --color-danger-soft-foreground: #dc2626;
+  --ghost-danger-bg-hover: var(--color-danger-soft);
+  --ghost-danger-foreground: var(--color-danger);
+  --color-info: #2563eb;
+  --color-info-hover: color-mix(in srgb, #2563eb 85%, black);
+  --color-info-foreground: #ffffff;
+  --color-info-soft: color-mix(in srgb, #2563eb 12%, white);
+  --color-info-soft-foreground: #2563eb;
+  --ghost-info-bg-hover: var(--color-info-soft);
+  --ghost-info-foreground: var(--color-info);
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 18px;
+  --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px rgb(0 0 0 / 0.15);
+  --glass-bg: rgb(248 250 252 / 40%);
+  --glass-border: rgb(226 232 240 / 60%);
+  --glass-highlight: rgb(255 255 255 / 65%);
+  --shadow-glass: 0 4px 20px rgb(0 0 0 / 0.1), inset 0 1px 0 rgb(255 255 255 / 0.35);
+  --glass-shadow: 0 4px 20px rgb(0 0 0 / 0.1), inset 0 1px 0 rgb(255 255 255 / 0.35);
+}
