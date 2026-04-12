@@ -19,7 +19,7 @@
               "id": "cover-node",
               "type": "Cover",
               "props": {
-                "as": "section",
+                "as": "div",
                 "size": "full",
                 "align": "center",
                 "media": "Cover content",
