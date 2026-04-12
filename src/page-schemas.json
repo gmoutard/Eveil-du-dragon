@@ -16,10 +16,52 @@
             },
             "children": [
               {
+                "id": "cover-node",
+                "type": "Cover",
+                "props": {
+                  "as": "section",
+                  "size": "md",
+                  "align": "center",
+                  "media": "Cover content",
+                  "title": " ",
+                  "layout": {
+                    "heightPx": 1006,
+                    "widthPct": 100,
+                    "heightPct": 100
+                  },
+                  "reveal": false,
+                  "eyebrow": {
+                    "$t": " ",
+                    "values": {
+                      "section": "cover"
+                    },
+                    "defaultValue": " "
+                  },
+                  "surface": "plain",
+                  "variant": "stacked",
+                  "__studio": {
+                    "mediaAlt": "Cover media",
+                    "mediaSrc": "/logo_vw.png",
+                    "mediaSource": "image"
+                  },
+                  "children": "",
+                  "subtitle": "",
+                  "description": {
+                    "$t": " ",
+                    "values": {
+                      "mode": "cover"
+                    },
+                    "defaultValue": " "
+                  },
+                  "textVariant": "primary"
+                },
+                "children": []
+              },
+              {
                 "id": "hero-title",
                 "type": "H1",
                 "props": {
-                  "children": "L'Éveil du Dragon : Quand le volume donne vie à l'imaginaire",
+                  "children": "L'Éveil du Dragon : Quand le volume donne vie à l'imaginair",
                   "className": "text-5xl font-bold tracking-tight text-foreground"
                 }
               },
