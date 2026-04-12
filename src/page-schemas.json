@@ -19,24 +19,15 @@
                 "id": "cover-node",
                 "type": "Cover",
                 "props": {
-                  "as": "div",
+                  "as": "section",
                   "size": "full",
                   "align": "center",
                   "media": "Cover content",
                   "title": " ",
                   "layout": {
-                    "heightPx": 314,
-                    "widthPct": 100,
-                    "heightPct": 60.49
+                    "widthPct": 100
                   },
                   "reveal": false,
-                  "eyebrow": {
-                    "$t": " ",
-                    "values": {
-                      "section": "cover"
-                    },
-                    "defaultValue": " "
-                  },
                   "surface": "plain",
                   "variant": "centered",
                   "__studio": {
@@ -44,25 +35,15 @@
                     "mediaSrc": "/logo_vw.png",
                     "mediaSource": "image"
                   },
-                  "children": "",
-                  "subtitle": "",
-                  "description": {
-                    "$t": " ",
-                    "values": {
-                      "mode": "cover"
-                    },
-                    "defaultValue": " "
-                  },
                   "textVariant": "primary"
-                },
-                "children": []
+                }
               },
               {
                 "id": "hero-title",
                 "type": "H1",
                 "props": {
                   "children": "L'Éveil du Dragon : Quand le volume donne vie à l'imaginaire",
-                  "className": "text-5xl font-bold tracking-tight text-foreground"
+                  "className": "text-3xl md:text-5xl font-bold tracking-tight text-foreground"
                 }
               },
               {
@@ -70,7 +51,7 @@
                 "type": "Lead",
                 "props": {
                   "children": "Des jeux de société en 3D carton, éco-conçus en Occitanie, pour transformer vos moments en famille en aventures tactiles et pédagogiques.",
-                  "className": "text-xl text-muted-foreground max-w-2xl mx-auto"
+                  "className": "text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto"
                 }
               },
               {
@@ -95,7 +76,7 @@
                 "type": "H2",
                 "props": {
                   "children": "Pourquoi choisir L'Éveil du Dragon ?",
-                  "className": "text-3xl font-semibold text-center"
+                  "className": "text-2xl md:text-3xl font-semibold text-center"
                 }
               },
               {
@@ -123,7 +104,7 @@
                         "type": "Text",
                         "props": {
                           "children": "Zéro plastique, 100% carton recyclé. Nos structures 3D sont pensées pour durer et respecter la planète.",
-                          "className": "text-lg font-medium"
+                          "className": "text-base md:text-lg font-medium"
                         }
                       }
                     ]
@@ -143,7 +124,7 @@
                         "type": "Text",
                         "props": {
                           "children": "Conçu par un ancien enseignant et thérapeute, chaque jeu favorise le développement cognitif et émotionnel.",
-                          "className": "text-lg font-medium"
+                          "className": "text-base md:text-lg font-medium"
                         }
                       }
                     ]
@@ -164,7 +145,7 @@
                 "type": "H2",
                 "props": {
                   "children": "Cadeau : Le Trésor sous la Montagne",
-                  "className": "text-2xl font-bold"
+                  "className": "text-xl md:text-2xl font-bold"
                 }
               },
               {
@@ -172,7 +153,7 @@
                 "type": "Text",
                 "props": {
                   "children": "Téléchargez, imprimez et construisez votre dragon articulé. Une expérience de craft immédiate pour vos enfants.",
-                  "className": "text-muted-foreground max-w-prose mx-auto"
+                  "className": "text-sm md:text-base text-muted-foreground max-w-prose mx-auto"
                 }
               },
               {
@@ -195,7 +176,8 @@
                 "id": "footer-text",
                 "type": "Muted",
                 "props": {
-                  "children": "© 2024 L'Éveil du Dragon - Créations coopératives en Occitanie."
+                  "children": "© 2024 L'Éveil du Dragon - Créations coopératives en Occitanie.",
+                  "className": "text-xs md:text-sm"
                 }
               }
             ]
