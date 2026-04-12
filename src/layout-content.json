@@ -9,7 +9,7 @@
   "footer": {
     "enabled": true,
     "text": "Eveil du dragon",
-    "logoPath": "",
+    "logoPath": "/app-assembly-footer-logo.png",
     "logoPosition": "center",
     "logoSize": "large",
     "sectionBordersEnabled": false,
