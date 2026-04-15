@@ -3,17 +3,17 @@
   "header": {
     "logoPath": "",
     "logoSize": "small",
-    "navigationMode": "inline",
+    "navigationMode": "toggle",
     "localePreferencePopinEnabled": false
   },
   "footer": {
     "enabled": true,
-    "text": "Eveil du dragon",
-    "logoPath": "/app-assembly-footer-logo.png",
-    "logoPosition": "center",
-    "logoSize": "large",
-    "sectionBordersEnabled": false,
-    "sectionBackgroundEnabled": false,
+    "text": "Powered by Arkcit App Assembly",
+    "logoPath": "",
+    "logoPosition": "left",
+    "logoSize": "small",
+    "sectionBordersEnabled": true,
+    "sectionBackgroundEnabled": true,
     "sections": [
       {
         "id": "footer-section-1",

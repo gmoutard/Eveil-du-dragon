@@ -5,6 +5,8 @@ import siteContentRaw from "@/site-content.json";
 import { SUPPORTED_LOCALES, withLocalePath } from "@/i18n/locales";
 import { resolveLocalizedRoutePath } from "@/lib/routes";
 
+export const dynamic = "force-static";
+
 type AppAssemblyRoutePage = {
   id: string;
   routePath: string;

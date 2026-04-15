@@ -1,4 +1,5 @@
-import ReactCountryFlag from "react-country-flag";
+import type { ComponentType } from "react";
+import * as ReactCountryFlagModule from "react-country-flag";
 import { Badge, Button } from "@arkcit/react-ui/ui";
 
 import { createLocale, parseLocale, SUPPORTED_COUNTRIES, SUPPORTED_LANGUAGES } from "@/i18n/locales";
@@ -26,6 +27,25 @@ const LocaleOptionButton = ({ active, onClick, children }: LocaleOptionButtonPro
   </button>
 );
 
+type CountryFlagComponent = ComponentType<Record<string, unknown>>;
+
+const countryFlagModule = ReactCountryFlagModule as unknown as {
+  default?: CountryFlagComponent;
+  ReactCountryFlag?: CountryFlagComponent;
+};
+
+const CountryFlag =
+  countryFlagModule.ReactCountryFlag ??
+  countryFlagModule.default ??
+  (countryFlagModule.default as unknown as { ReactCountryFlag?: CountryFlagComponent })
+    ?.ReactCountryFlag ??
+  (countryFlagModule.default as unknown as CountryFlagComponent) ??
+  (countryFlagModule.ReactCountryFlag as unknown as CountryFlagComponent) ??
+  (ReactCountryFlagModule as unknown as { ReactCountryFlag?: CountryFlagComponent })
+    .ReactCountryFlag ??
+  countryFlagModule.ReactCountryFlag ??
+  (ReactCountryFlagModule as unknown as CountryFlagComponent);
+
 export function LocalePreferenceDialog({ shell }: { shell: AppShellState }) {
   if (!shell.layoutContent.header.localePreferencePopinEnabled || !shell.localeDialogOpen) {
     return null;
@@ -37,12 +57,12 @@ export function LocalePreferenceDialog({ shell }: { shell: AppShellState }) {
 
   return (
     <div className="fixed inset-0 z-[80] bg-black/40 backdrop-blur-sm" onClick={shell.closeLocaleDialog}>
-      <div className="flex min-h-full items-center justify-center px-4 py-8">
+      <div className="flex min-h-full items-center justify-center px-4 py-4 sm:py-8">
         <div
-          className="w-full max-w-xl rounded-2xl border border-border bg-background p-5 text-foreground shadow-lg"
+          className="flex max-h-[85vh] w-full max-w-xl flex-col rounded-2xl border border-border bg-background text-foreground shadow-lg"
           onClick={(event) => event.stopPropagation()}
         >
-          <div className="mb-4 flex items-start justify-between gap-3">
+          <div className="flex items-start justify-between gap-3 border-b border-border px-5 py-4">
             <div className="space-y-1">
               <div className="text-lg font-semibold">{shell.messages.shell.localeDialogTitle}</div>
             </div>
@@ -50,7 +70,7 @@ export function LocalePreferenceDialog({ shell }: { shell: AppShellState }) {
               {shell.messages.shell.localeDialogClose}
             </Button>
           </div>
-          <div className="space-y-6">
+          <div className="min-h-0 space-y-6 overflow-y-auto px-5 py-4 pr-3 sm:pr-5">
             <div className="space-y-2">
               <p className="text-sm text-muted-foreground">
                 {shell.messages.shell.localeDialogDescription}
@@ -61,7 +81,7 @@ export function LocalePreferenceDialog({ shell }: { shell: AppShellState }) {
                 </Badge>
                 <Badge variant="soft" intent="secondary" className="max-w-full break-words">
                   <span className="inline-flex items-center gap-2">
-                    <ReactCountryFlag
+                    <CountryFlag
                       svg
                       countryCode={selectedLocale.flagCode}
                       aria-label={
@@ -129,7 +149,7 @@ export function LocalePreferenceDialog({ shell }: { shell: AppShellState }) {
                     >
                       <div className="flex min-w-0 flex-1 items-center gap-3">
                         <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-surface-hover text-lg">
-                          <ReactCountryFlag
+                          <CountryFlag
                             svg
                             countryCode={parsed.flagCode}
                             aria-label={
@@ -156,7 +176,8 @@ export function LocalePreferenceDialog({ shell }: { shell: AppShellState }) {
                 })}
               </div>
             </section>
-
+          </div>
+          <div className="border-t border-border px-5 py-4">
             <div className="flex justify-end">
               <Button onClick={shell.applyLocaleSelection}>
                 {shell.messages.shell.localeDialogApply}

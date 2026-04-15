@@ -12,14 +12,14 @@
             "id": "hero-section",
             "type": "Container",
             "props": {
-              "className": "w-full max-w-5xl mx-auto text-center space-y-6 px-4"
+              "className": "w-full mx-auto text-center space-y-6"
             },
             "children": [
               {
                 "id": "cover-node",
                 "type": "Cover",
                 "props": {
-                  "as": "section",
+                  "as": "header",
                   "size": "full",
                   "align": "center",
                   "media": "Cover content",
@@ -35,6 +35,7 @@
                     "mediaSrc": "/logo_vw.png",
                     "mediaSource": "image"
                   },
+                  "className": "w-full object-cover",
                   "textVariant": "primary"
                 }
               },
@@ -43,7 +44,7 @@
                 "type": "H1",
                 "props": {
                   "children": "L'Éveil du Dragon : Quand le volume donne vie à l'imaginaire",
-                  "className": "text-3xl md:text-5xl font-bold tracking-tight text-foreground"
+                  "className": "text-3xl md:text-5xl font-bold tracking-tight text-foreground px-4 max-w-5xl mx-auto"
                 }
               },
               {
@@ -51,7 +52,7 @@
                 "type": "Lead",
                 "props": {
                   "children": "Des jeux de société en 3D carton, éco-conçus en Occitanie, pour transformer vos moments en famille en aventures tactiles et pédagogiques.",
-                  "className": "text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto"
+                  "className": "text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto px-4"
                 }
               },
               {
@@ -75,7 +76,7 @@
                 "id": "why-us-title",
                 "type": "H2",
                 "props": {
-                  "children": "Pourquoi choisir L'Éveil du Dragon ?",
+                  "children": "Pourquoi choisir L'Éveil du Dragon ?",
                   "className": "text-2xl md:text-3xl font-semibold text-center"
                 }
               },

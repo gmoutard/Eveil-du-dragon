@@ -1,8 +1,12 @@
 import type { Metadata } from "next";
 
 import { getMessages } from "@/i18n/messages";
-import type { AppLocale } from "@/i18n/locales";
+import { SUPPORTED_LOCALES, type AppLocale } from "@/i18n/locales";
 import { AppShell } from "@/components/shell/AppShell";
+
+export function generateStaticParams() {
+  return SUPPORTED_LOCALES.map((locale) => ({ locale }));
+}
 
 export async function generateMetadata({
   params,

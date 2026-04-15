@@ -10,9 +10,13 @@ import {
 } from "@/lib/studioBackend";
 import pageTranslationsRaw from "@/page-translations.json";
 import homeSchema from "@/schemas/home.json";
-import type { AppLocale } from "@/i18n/locales";
+import { SUPPORTED_LOCALES, type AppLocale } from "@/i18n/locales";
 
 const pageTranslations = pageTranslationsRaw as Record<string, unknown>;
+
+export function generateStaticParams() {
+  return SUPPORTED_LOCALES.map((locale) => ({ locale }));
+}
 
 export default async function HomePage({
   params,
