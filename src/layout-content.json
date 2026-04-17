@@ -3,17 +3,17 @@
   "header": {
     "logoPath": "",
     "logoSize": "small",
-    "navigationMode": "toggle",
+    "navigationMode": "inline",
     "localePreferencePopinEnabled": false
   },
   "footer": {
     "enabled": true,
     "text": "Powered by arkcit",
-    "logoPath": "",
-    "logoPosition": "left",
-    "logoSize": "small",
-    "sectionBordersEnabled": true,
-    "sectionBackgroundEnabled": true,
+    "logoPath": "/app-assembly-footer-logo.png",
+    "logoPosition": "center",
+    "logoSize": "large",
+    "sectionBordersEnabled": false,
+    "sectionBackgroundEnabled": false,
     "sections": [
       {
         "id": "footer-section-1",

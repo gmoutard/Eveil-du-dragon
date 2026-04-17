@@ -2,6 +2,49 @@
   "cmnrp9s2l0014o001j0060uiq": {
     "nodes": [
       {
+        "id": "container-node",
+        "type": "Container",
+        "props": {
+          "size": "md",
+          "children": "Container content",
+          "className": "w-full space-y-1"
+        },
+        "children": [
+          {
+            "id": "cover-node",
+            "type": "Cover",
+            "props": {
+              "as": "header",
+              "size": "full",
+              "align": "center",
+              "media": "Cover content",
+              "title": "",
+              "layout": {
+                "heightPx": 280,
+                "widthPct": 100,
+                "heightPct": 96.9
+              },
+              "reveal": false,
+              "eyebrow": "",
+              "surface": "plain",
+              "variant": "default",
+              "__studio": {
+                "mediaAlt": "Cover media",
+                "mediaSrc": "https://api.dev.arkcit-ui.com/assembly/projects/cmnrp7bzg000zo001a0bpygci/media/36cf9e1b-c172-43b9-afab-4ac40a68b17c/content",
+                "mediaSource": "image",
+                "localObjectUrl": "blob:https://dev.arkcit-ui.com/c5026ba5-d36b-45f5-9b9f-b48c11f75dd0",
+                "previewMediaSrc": "blob:https://dev.arkcit-ui.com/c5026ba5-d36b-45f5-9b9f-b48c11f75dd0"
+              },
+              "children": "",
+              "subtitle": "",
+              "description": "",
+              "textVariant": "primary"
+            },
+            "children": []
+          }
+        ]
+      },
+      {
         "id": "root-container",
         "type": "Container",
         "props": {
@@ -16,31 +59,7 @@
             },
             "children": [
               {
-                "id": "cover-node",
-                "type": "Cover",
-                "props": {
-                  "as": "header",
-                  "size": "full",
-                  "align": "center",
-                  "media": "Cover content",
-                  "title": " ",
-                  "layout": {
-                    "widthPct": 100
-                  },
-                  "reveal": false,
-                  "surface": "plain",
-                  "variant": "centered",
-                  "__studio": {
-                    "mediaAlt": "Cover media",
-                    "mediaSrc": "/logo_fw.png",
-                    "mediaSource": "image"
-                  },
-                  "className": "w-full h-auto object-contain",
-                  "textVariant": "primary"
-                }
-              },
-              {
-                "id": "hero-title",
+                "id": "hero-title-copy",
                 "type": "H1",
                 "props": {
                   "children": "L'Éveil du Dragon : Quand le volume donne vie à l'imaginaire",
@@ -61,6 +80,25 @@
                 "props": {
                   "children": "Découvrir le Trésor sous la Montagne",
                   "className": "mt-8"
+                }
+              },
+              {
+                "id": "image-node-2",
+                "type": "Image",
+                "props": {
+                  "alt": "Studio image",
+                  "fit": "cover",
+                  "src": "https://api.dev.arkcit-ui.com/assembly/projects/cmnrp7bzg000zo001a0bpygci/media/36cf9e1b-c172-43b9-afab-4ac40a68b17c/content",
+                  "aspect": "auto",
+                  "layout": {
+                    "heightPx": 259,
+                    "widthPct": 100,
+                    "heightPct": 20.62
+                  },
+                  "__studio": {
+                    "previewMediaSrc": "blob:https://dev.arkcit-ui.com/285e3fc2-c229-495f-a5bd-59ad02666cdf",
+                    "uploadedFileName": "logo_vw.png"
+                  }
                 }
               }
             ]
