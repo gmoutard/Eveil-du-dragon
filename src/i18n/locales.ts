@@ -12,8 +12,11 @@ export type AppLocale = `${AppLanguage}-${AppCountry}`;
 const siteContent = siteContentRaw as {
   supportedLanguages?: AppLanguage[];
   supportedCountries?: AppCountry[];
+  localizationEnabled?: boolean;
   defaultLocale?: string;
 };
+
+export const LOCALIZATION_ENABLED = siteContent.localizationEnabled !== false;
 
 export const SUPPORTED_LANGUAGES = (
   Array.isArray(siteContent.supportedLanguages) && siteContent.supportedLanguages.length > 0
@@ -52,7 +55,7 @@ const COUNTRY_META: Record<AppCountry, { code: string; label: string; flagCode: 
 export const createLocale = (language: AppLanguage, country: AppCountry): AppLocale =>
   `${language}-${country}` as AppLocale;
 
-export const SUPPORTED_LOCALES = SUPPORTED_LANGUAGES.flatMap((language) =>
+const configuredLocales = SUPPORTED_LANGUAGES.flatMap((language) =>
   SUPPORTED_COUNTRIES.map((country) => createLocale(language, country)),
 ) as AppLocale[];
 
@@ -63,11 +66,11 @@ export const isSupportedCountry = (value: string): value is AppCountry =>
   ALL_COUNTRIES.includes(value.toLowerCase() as AppCountry);
 
 export const isSupportedLocale = (value: string): value is AppLocale =>
-  SUPPORTED_LOCALES.includes(value as AppLocale);
+  configuredLocales.includes(value as AppLocale);
 
 export const getCanonicalLocale = (value: string): AppLocale | null => {
   const normalized = value.trim();
-  const match = SUPPORTED_LOCALES.find(
+  const match = configuredLocales.find(
     (locale) => locale.toLowerCase() === normalized.toLowerCase(),
   );
 
@@ -104,6 +107,10 @@ const resolvedDefaultLocale = siteContent.defaultLocale
   : null;
 export const DEFAULT_LOCALE =
   resolvedDefaultLocale ?? createLocale(SUPPORTED_LANGUAGES[0] ?? "EN", SUPPORTED_COUNTRIES[0] ?? "gb");
+
+export const SUPPORTED_LOCALES = (
+  LOCALIZATION_ENABLED ? configuredLocales : [DEFAULT_LOCALE]
+) as AppLocale[];
 
 export const parseLocale = (locale: AppLocale) => {
   const [language, country] = locale.split("-") as [AppLanguage, AppCountry];
@@ -187,13 +194,21 @@ export const resolvePreferredLocale = ({
   cookieLocale?: string | null;
   acceptLanguage?: string | null;
 }): AppLocale =>
+  !LOCALIZATION_ENABLED
+    ? DEFAULT_LOCALE
+    :
   parseLocaleCookie(cookieLocale) ??
   detectLocaleFromAcceptLanguage(acceptLanguage) ??
   DEFAULT_LOCALE;
 
-export const getLocalePrefix = (locale: AppLocale) => `/${locale}`;
+export const getLocalePrefix = (locale: AppLocale) =>
+  LOCALIZATION_ENABLED ? `/${locale}` : "";
 
 export const withLocalePath = (locale: AppLocale, path: string) => {
   const normalizedPath = path.startsWith("/") ? path : `/${path}`;
+  if (!LOCALIZATION_ENABLED) {
+    return normalizedPath;
+  }
+
   return normalizedPath === "/" ? getLocalePrefix(locale) : `${getLocalePrefix(locale)}${normalizedPath}`;
 };

@@ -2,7 +2,7 @@ import Link from "next/link";
 import ReactCountryFlag from "react-country-flag";
 import { Badge, Button } from "@arkcit/react-ui/ui";
 
-import { createLocale, parseLocale } from "@/i18n/locales";
+import { createLocale, LOCALIZATION_ENABLED, parseLocale } from "@/i18n/locales";
 import type { AppShellState } from "./shell.types";
 
 export function ShellNavigation({ shell }: { shell: AppShellState }) {
@@ -45,7 +45,7 @@ export function ShellNavigation({ shell }: { shell: AppShellState }) {
                 {item.label}
               </Link>
             ))}
-            {shell.layoutContent.header.localePreferencePopinEnabled ? (
+            {LOCALIZATION_ENABLED && shell.layoutContent.header.localePreferencePopinEnabled ? (
               <div className="space-y-2 border-t border-border pt-4">
                 <div className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">
                   {shell.messages.shell.localeSwitcherLabel}
@@ -100,7 +100,7 @@ export function ShellNavigation({ shell }: { shell: AppShellState }) {
                 {item.label}
               </Link>
             ))}
-            {shell.layoutContent.header.localePreferencePopinEnabled ? (
+            {LOCALIZATION_ENABLED && shell.layoutContent.header.localePreferencePopinEnabled ? (
               <div className="space-y-2 border-t border-border pt-3">
                 <div className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">
                   {shell.messages.shell.localeSwitcherLabel}

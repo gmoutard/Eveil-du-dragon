@@ -17,6 +17,7 @@ type AppAssemblyRoutePage = {
   navigationLabel: string;
   localizedNavigationLabels?: Partial<Record<AppLanguage, string>>;
   includeInNavigation: boolean;
+  hideLayoutChrome?: boolean;
 };
 
 const manifest = pagesContent as { pages: AppAssemblyRoutePage[] };
@@ -191,6 +192,15 @@ export function findPageByRoutePath(routePath: string, locale?: AppLocale) {
 export function findHomePage() {
   const pages = Array.isArray(manifest.pages) ? manifest.pages : [];
   return pages.find((page) => normalizeRoutePath(page.routePath) === "/") ?? null;
+}
+
+export function shouldHideLayoutChrome(routePath: string, locale?: AppLocale) {
+  const normalizedRoutePath = normalizeRoutePath(routePath);
+  const matchedPage = locale
+    ? findPageByRoutePath(normalizedRoutePath, locale)
+    : findPageByRoutePath(normalizedRoutePath);
+
+  return Boolean(matchedPage?.hideLayoutChrome);
 }
 
 export function switchPageLocalePath(

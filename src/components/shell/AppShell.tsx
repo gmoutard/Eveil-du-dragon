@@ -1,9 +1,10 @@
 "use client";
 
 import layoutContent from "@/layout-content.json";
+import { usePathname } from "next/navigation";
 import type { AppLocale } from "@/i18n/locales";
 import type { AppMessages } from "@/i18n/messages";
-import { getNavigationItems } from "@/lib/routes";
+import { getNavigationItems, shouldHideLayoutChrome } from "@/lib/routes";
 import { LocalePreferenceDialog } from "@/components/shell/LocalePreferenceDialog";
 import { ShellFooter } from "@/components/shell/ShellFooter";
 import { ShellHeader } from "@/components/shell/ShellHeader";
@@ -18,12 +19,23 @@ interface AppShellProps {
 }
 
 export function AppShell({ locale, messages, children }: AppShellProps) {
+  const pathname = usePathname();
   const shell = useAppShellState({
     locale,
     messages,
     layoutContent: layoutContent as ShellLayoutContent,
     navigationItems: getNavigationItems(locale, messages),
   });
+  const localizedPrefix = `/${locale}`;
+  const currentRoutePath =
+    pathname && pathname.startsWith(localizedPrefix)
+      ? pathname.slice(localizedPrefix.length) || "/"
+      : pathname || "/";
+  const hideLayoutChrome = shouldHideLayoutChrome(currentRoutePath, locale);
+
+  if (hideLayoutChrome) {
+    return <main className="min-h-screen bg-background text-foreground">{children}</main>;
+  }
 
   return (
     <main className="flex min-h-screen flex-col bg-background text-foreground">

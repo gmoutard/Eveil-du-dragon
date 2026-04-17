@@ -2,7 +2,7 @@ import Link from "next/link";
 import ReactCountryFlag from "react-country-flag";
 import { Badge, Button } from "@arkcit/react-ui/ui";
 
-import { createLocale, parseLocale } from "@/i18n/locales";
+import { createLocale, LOCALIZATION_ENABLED, parseLocale } from "@/i18n/locales";
 import type { AppShellState } from "./shell.types";
 
 const HEADER_LOGO_CLASS_NAMES = {
@@ -20,7 +20,7 @@ export function ShellHeader({ shell }: { shell: AppShellState }) {
   return (
     <nav className="sticky top-0 z-50 border-b border-primary-hover bg-primary text-primary-foreground">
       <div className={shell.headerClassName}>
-        <div className="flex min-w-0 items-center">
+        <div className="flex min-w-0 flex-1 items-center">
           {shell.layoutContent.header.logoPath ? (
             <img
               src={shell.layoutContent.header.logoPath}
@@ -29,11 +29,15 @@ export function ShellHeader({ shell }: { shell: AppShellState }) {
             />
           ) : null}
         </div>
-        <div className="text-sm font-semibold uppercase tracking-[0.22em]">
-          {shell.messages.shell.appName}
+        <div className="pointer-events-none absolute left-1/2 top-1/2 flex min-h-14 -translate-x-1/2 -translate-y-1/2 items-center justify-center px-24">
+          <div className="min-w-0 max-w-full truncate text-center text-sm font-semibold uppercase tracking-[0.22em]">
+            {shell.messages.shell.appName}
+          </div>
         </div>
-        <div className="flex items-center gap-2">
-          {shell.layoutContent.header.localePreferencePopinEnabled && !shell.openLocaleFromNavigation ? (
+        <div className="flex min-w-0 flex-1 items-center justify-end gap-2">
+          {LOCALIZATION_ENABLED &&
+          shell.layoutContent.header.localePreferencePopinEnabled &&
+          !shell.openLocaleFromNavigation ? (
             <button
               type="button"
               onClick={shell.openLocaleDialog}

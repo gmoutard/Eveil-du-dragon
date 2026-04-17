@@ -8,7 +8,8 @@
       "pageTitle": "ACCEUIL",
       "navigationLabel": "ACCEUIL",
       "localizedNavigationLabels": {},
-      "includeInNavigation": true
+      "includeInNavigation": true,
+      "hideLayoutChrome": false
     }
   ]
 }

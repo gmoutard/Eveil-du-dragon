@@ -2,7 +2,13 @@ import type { ComponentType } from "react";
 import * as ReactCountryFlagModule from "react-country-flag";
 import { Badge, Button } from "@arkcit/react-ui/ui";
 
-import { createLocale, parseLocale, SUPPORTED_COUNTRIES, SUPPORTED_LANGUAGES } from "@/i18n/locales";
+import {
+  createLocale,
+  LOCALIZATION_ENABLED,
+  parseLocale,
+  SUPPORTED_COUNTRIES,
+  SUPPORTED_LANGUAGES,
+} from "@/i18n/locales";
 import type { AppCountry, AppLanguage } from "@/i18n/locales";
 import type { AppShellState } from "./shell.types";
 
@@ -47,7 +53,11 @@ const CountryFlag =
   (ReactCountryFlagModule as unknown as CountryFlagComponent);
 
 export function LocalePreferenceDialog({ shell }: { shell: AppShellState }) {
-  if (!shell.layoutContent.header.localePreferencePopinEnabled || !shell.localeDialogOpen) {
+  if (
+    !LOCALIZATION_ENABLED ||
+    !shell.layoutContent.header.localePreferencePopinEnabled ||
+    !shell.localeDialogOpen
+  ) {
     return null;
   }
 

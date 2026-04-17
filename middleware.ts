@@ -3,6 +3,7 @@ import type { NextRequest } from "next/server";
 
 import {
   DEFAULT_LOCALE,
+  LOCALIZATION_ENABLED,
   getCanonicalLocale,
   isSupportedLocale,
   LOCALE_COOKIE_NAME,
@@ -19,10 +20,6 @@ const shouldBypass = (pathname: string) =>
 
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
-  const preferredLocale = resolvePreferredLocale({
-    cookieLocale: request.cookies.get(LOCALE_COOKIE_NAME)?.value,
-    acceptLanguage: request.headers.get("accept-language"),
-  });
 
   if (shouldBypass(pathname)) {
     return NextResponse.next();
@@ -30,6 +27,30 @@ export function middleware(request: NextRequest) {
 
   const segments = pathname.split("/").filter(Boolean);
   const firstSegment = segments[0];
+
+  if (!LOCALIZATION_ENABLED) {
+    if (firstSegment && isSupportedLocale(firstSegment)) {
+      const url = request.nextUrl.clone();
+      url.pathname = `/${segments.slice(1).join("/")}`.replace(/\/$/, "") || "/";
+      return NextResponse.redirect(url);
+    }
+
+    const canonicalLocale = firstSegment ? getCanonicalLocale(firstSegment) : null;
+    if (firstSegment && canonicalLocale) {
+      const url = request.nextUrl.clone();
+      url.pathname = `/${segments.slice(1).join("/")}`.replace(/\/$/, "") || "/";
+      return NextResponse.redirect(url);
+    }
+
+    const url = request.nextUrl.clone();
+    url.pathname = `/${DEFAULT_LOCALE}${pathname === "/" ? "" : pathname}`;
+    return NextResponse.rewrite(url);
+  }
+
+  const preferredLocale = resolvePreferredLocale({
+    cookieLocale: request.cookies.get(LOCALE_COOKIE_NAME)?.value,
+    acceptLanguage: request.headers.get("accept-language"),
+  });
 
   if (!firstSegment) {
     const response = NextResponse.redirect(new URL(`/${preferredLocale || DEFAULT_LOCALE}`, request.url));

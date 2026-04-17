@@ -32,10 +32,10 @@
                 "variant": "centered",
                 "__studio": {
                   "mediaAlt": "Cover media",
-                  "mediaSrc": "/logo_vw.png",
+                  "mediaSrc": "/logo_fw.png",
                   "mediaSource": "image"
                 },
-                "className": "w-full object-cover",
+                "className": "w-full h-auto object-contain",
                 "textVariant": "primary"
               }
             },

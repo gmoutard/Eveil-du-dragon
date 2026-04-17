@@ -4,6 +4,7 @@ import { useState } from "react";
 
 import {
   createLocale,
+  LOCALIZATION_ENABLED,
   LOCALE_COOKIE_NAME,
   SUPPORTED_COUNTRIES,
   SUPPORTED_LANGUAGES,
@@ -79,6 +80,12 @@ export function useAppShellState({
 
   const applyLocaleSelection = () => {
     if (typeof document === "undefined" || typeof window === "undefined") {
+      return;
+    }
+
+    if (!LOCALIZATION_ENABLED) {
+      setLocaleDialogOpen(false);
+      closeNavigation();
       return;
     }
 
